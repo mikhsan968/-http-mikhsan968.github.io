@@ -4,6 +4,6 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		echo 'Hello ngide itu sehat!';
+		echo 'Hello ngide itu sehat loh!';
 	}
 }
