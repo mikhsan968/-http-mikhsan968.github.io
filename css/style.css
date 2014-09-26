@@ -1,6 +1,0 @@
-
-#map-canvas { height: 300px; }
-
-@media (min-width: 992px) {
-	#map-canvas { height: 400px; }
-}
