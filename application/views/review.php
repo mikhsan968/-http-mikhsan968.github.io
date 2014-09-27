@@ -31,7 +31,6 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?= site_url('home') ?>">Utama</a></li>
             <li class="active"><a href="<?= site_url('review') ?>">Review</a></li>
             <li><a href="<?= site_url('search') ?>">Rekomendasi</a></li>
             <li><a href="<?= site_url('info') ?>">Informasi</a></li>
@@ -51,15 +50,15 @@
 				<form action="<?= site_url('review/post') ?>" method="post" role="form">
 					<div class="form-group">
 						<label for="tanggal">Tanggal kunjungan</label>
-						<input type="date" class="form-control" name="tanggal" placeholder="Tanggal kunjungan" required>
+						<input type="date" class="form-control" name="tanggal" required>
 					</div>
 					<div class="form-group">
 						<label for="waktu">Waktu kunjungan</label>
-						<input type="time" class="form-control" name="waktu" placeholder="Waktu kunjungan" required>
+						<input type="time" class="form-control" name="waktu" required>
 					</div>
 					<div class="form-group">
 						<label for="faskes">Fasilitas Kesehatan</label>
-						<select name="faskes" class="form-control" placeholder="Fasilitas kesehatan" required>
+						<select name="faskes" class="form-control" required>
 							<?php foreach ($faskes as $key => $value) { ?>
 								<option value="<?= $key ?>"><?= $value->name ?></option>
 							<?php } ?>
@@ -67,14 +66,14 @@
 					</div>
 					<div class="form-group">
 						<label for="keterangan">Keterangan</label>
-						<textarea name="keterangan" class="form-control" rows="8" placeholder="Keterangan" required></textarea>
+						<textarea name="keterangan" class="form-control" rows="8" required></textarea>
 					</div>
 					<div class="form-group">
 						<label for="nilai">Penilaian</label>
-						<select name="nilai" class="form-control" placeholder="Penilaian" required>
+						<select name="nilai" class="form-control" required>
 							<option value="1">1 - Sangat Buruk</option>
 							<option value="2">2 - Buruk</option>
-							<option value="3">3 - Biasa</option>
+							<option value="3" selected>3 - Biasa</option>
 							<option value="4">4 - Bagus</option>
 							<option value="5">5 - Sangat Bagus</option>
 						</select>
@@ -84,6 +83,11 @@
 			</div>
 		</div>
     </div>
+	
+	<footer class="container">
+		<hr>
+		<p class="text-muted">&copy; 2014 Ngidesehat</p>
+	</footer>
 
     <script src="<?= base_url('vendor/jquery/jquery-1.11.1.js') ?>"></script>
     <script src="<?= base_url('vendor/bootstrap/js/bootstrap.js') ?>"></script>

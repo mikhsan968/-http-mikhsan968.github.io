@@ -30,7 +30,19 @@ class Recommendation extends CI_Controller {
 		}
 		
 		$query = $this->db->query('SELECT * FROM faskes WHERE type IN ' . $codeset);
-		$this->output->set_output(json_encode($query->result()));
+		$result = $query->result();
+		
+		// dummy empty ratio
+		foreach ($result as $value) {
+			$value->ratio = rand() % 100;
+		}
+		
+		// dummy rating
+		foreach ($result as $value) {
+			$value->rating = (float)(250 + rand() % 250)/100;
+		}
+		
+		$this->output->set_output(json_encode($result));
 	}
 	
 }

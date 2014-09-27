@@ -31,7 +31,6 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?= site_url('home') ?>">Utama</a></li>
             <li><a href="<?= site_url('review') ?>">Review</a></li>
             <li><a href="<?= site_url('search') ?>">Rekomendasi</a></li>
             <li><a href="<?= site_url('info') ?>">Informasi</a></li>

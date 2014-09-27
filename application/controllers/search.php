@@ -16,7 +16,23 @@ class Search extends CI_Controller
 			return;
 		}
 		
-		echo 'Hello search!';
+		$this->load->view('search', array(
+			'mail' => $this->session->userdata('mail')
+		));
+	}
+	
+	public function show()
+	{
+		$mail = $this->session->userdata('mail');
+		if ($mail === FALSE) {
+			redirect(site_url('auth'));
+			return;
+		}
+		
+		$this->load->view('searchshow', array(
+			'mail' => $this->session->userdata('mail'),
+			'kebutuhan' => $this->input->get('kebutuhan')
+		));
 	}
 	
 }
