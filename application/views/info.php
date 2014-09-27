@@ -36,6 +36,14 @@
             <li class="active"><a href="<?= site_url('info') ?>">Informasi</a></li>
           </ul>
 		  <ul class="nav navbar-nav navbar-right">
+		  			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Buku <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="<?= base_url('books/Buku_Pegangan_Sosialisasi_BPJS.pdf') ?>">Buku Pegangan Sosialisasi BPJS</a></li>
+					<li><a href="<?= base_url('books/Buku-Panduan-Layanan-bagi-Peserta-BPJS-Kesehatan.pdf') ?>">Buku Panduan Layanan bagi Peserta BPJS Kesehatan</a></li>
+					<li><a href="<?= base_url('books/SE_31_ttg_Pelaksanaan_Standar_Tarif_Pelayanan_Kesehatan.pdf') ?>">Standar Tarif Pelayanan Kesehatan</a></li>
+				</ul>
+			</li>
 			<li><a href="<?= site_url('home') ?>"><?= $mail ?></a></li>
             <li><a href="<?= site_url('auth/logout') ?>">Keluar</a></li>
 		  </ul>
@@ -53,9 +61,34 @@
 			<div class="col-md-3">
 				<h1><?= $faskes->name ?><br><small><?= $faskes->type ?></small></h1>
 				<p><strong>Alamat</strong><br><?= $faskes->address ?></p>
-				<h2>Kondisi Terkini</h2>
+				<h2>Kondisi</h2>
 				<p><strong>Rataan pasien per bulan:</strong><br><?= $state['avg'] ?></p>
 				<p><strong>Maksimal pasien per bulan:</strong><br><?= $state['max'] ?></p>
+				<?php
+					$ratio = (float)$state['avg'] / (float)$state['max'];
+					if ($ratio < 0.25) {
+						$type = 'alert-success';
+						$message = 'Lowong';
+					} else if ($ratio < 0.5) {
+						$type = 'alert-info';
+						$message = 'Sepi';
+					} else if ($ratio < 0.75) {
+						$type = 'alert-warning';
+						$message = 'Mengantri';
+					} else {
+						$type = 'alert-danger';
+						$message = 'Ramai';
+					}
+				?>
+				<div class="alert <?= $type ?>"><strong>Prediksi: </strong><?= $message ?></div>
+				<h2>Estimasi Biaya</h2>
+				<p><strong>Kelas rumah sakit:</strong><br><?= $kelas ?></p>
+				<p><strong>Estimasi biaya:</strong><br></p>
+				<ul>
+					<?php foreach ($tarif as $data) { ?>
+						<li><?= $data->penyakit ?>: Rp <?= $data->harga ?>,-</li>
+					<?php } ?>
+				</ul>
 			</div>
 			<div class="col-md-3">
 				<h2>Pendapat pasien</h2>

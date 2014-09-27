@@ -22,7 +22,7 @@
     <div class="container">
 
       <form class="form-signin" action="" method="post" role="form">
-	    <img class="img-ngidesehat img-responsive center-block" src="<?= base_url('img/ngidesehat.png') ?>">
+	    <img class="img-ngidesehat img-responsive center-block" src="<?= base_url('img/ngidesehat.jpg') ?>">
 		
 		<?php if (isset($error)) { ?>
 			<div class="alert alert-danger" role="alert"><strong>Error:</strong> Wrong email and/or password combination.</div>

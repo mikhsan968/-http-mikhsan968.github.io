@@ -27,10 +27,18 @@ class Info extends CI_Controller
 		$faskes->reviews = $this->db->query('SELECT * FROM review WHERE faskes = ? LIMIT 3', $id)->result();
 		$faskes->type = $this->__gettype($faskes->type);
 		
+		// dummy kelas
+		$rn = rand() % 3;
+		$kelas = $rn == 0 ? 'A' : $rn == 1 ? 'B' : 'C';
+		
+		$tarif = $this->db->query('SELECT penyakit, harga FROM tarif WHERE class = ?', $kelas)->result();
+		
 		$this->load->view('info', array(
 			'mail' => $this->session->userdata('mail'),
 			'faskes' => $faskes,
-			'state' => $this->__getstate()
+			'state' => $this->__getstate(),
+			'kelas' => $kelas,
+			'tarif' => $tarif
 		));
 	}
 	

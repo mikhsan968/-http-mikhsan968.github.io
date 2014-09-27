@@ -36,6 +36,14 @@
             <li><a href="<?= site_url('info') ?>">Informasi</a></li>
           </ul>
 		  <ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Buku <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="<?= base_url('books/Buku_Pegangan_Sosialisasi_BPJS.pdf') ?>">Buku Pegangan Sosialisasi BPJS</a></li>
+					<li><a href="<?= base_url('books/Buku-Panduan-Layanan-bagi-Peserta-BPJS-Kesehatan.pdf') ?>">Buku Panduan Layanan bagi Peserta BPJS Kesehatan</a></li>
+					<li><a href="<?= base_url('books/SE_31_ttg_Pelaksanaan_Standar_Tarif_Pelayanan_Kesehatan.pdf') ?>">Standar Tarif Pelayanan Kesehatan</a></li>
+				</ul>
+			</li>
 			<li><a href="<?= site_url('home') ?>"><?= $mail ?></a></li>
             <li><a href="<?= site_url('auth/logout') ?>">Keluar</a></li>
 		  </ul>
