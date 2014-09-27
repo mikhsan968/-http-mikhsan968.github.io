@@ -1,16 +1,21 @@
+
 (function() {
 
 	'use strict';
 	
 	// create map object using HTML5 location
 	// TODO add error handling: use a default location in Bandung
+	
+	
 	function initialize() {
 	
 		var mapOptions = {
 			center: new google.maps.LatLng(-6.9148644, 107.6082421),
-			zoom: 13
+			zoom: 15
 		};
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		
+		
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
 				var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -32,6 +37,7 @@
 		var directionsService = new google.maps.DirectionsService();
 		var directionsDisplay = new google.maps.DirectionsRenderer();
 		directionsDisplay.setMap(map);
+		directionsDisplay.setPanel(document.getElementById('directions-panel'));
 		
 		$.get("http://localhost/ngidesehat/index.php/facility/locations", function(loc) {
 			
@@ -64,9 +70,9 @@
 						destination: marker.position,
 						travelMode: google.maps.TravelMode.DRIVING
 					};
-					directionsService.route(request, function(result, status) {
+					directionsService.route(request, function(response, status) {
 						if (status == google.maps.DirectionsStatus.OK) {
-							directionsDisplay.setDirections(result);
+							directionsDisplay.setDirections(response);
 						}
 					});
 				});
@@ -75,6 +81,9 @@
 		});
 		
 	}
+	
+	
+	
 	google.maps.event.addDomListener(window, 'load', initialize);
 
 }());
