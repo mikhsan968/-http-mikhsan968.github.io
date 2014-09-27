@@ -3,6 +3,29 @@
 
 	'use strict';
 	
+	function getType(code) {
+		switch (code) {
+		case 'P1': return 'Puskesmas';
+		case 'P2': return 'Dokter Umum Praktik Mandiri';
+		case 'P3': return 'Dokter Gigi/Klinik Gigi';
+		case 'P4': return 'Klinik Pratama';
+		case 'P5': return 'Faskes Tk1 TNI';
+		case 'P6': return 'Faskes Tk1 POLRI';
+		case 'P7': return 'RS Klas D Pratama/RS Bersalin/Balai Pengobatan';
+		case 'L1': return 'RSUP/RSUD';
+		case 'L2': return 'RS TNI';
+		case 'L3': return 'RS POLRI';
+		case 'L4': return 'RS SWASTA';
+		case 'L5': return 'RS Khusus Pemerintah';
+		case 'L6': return 'KLINIK UTAMA/BALAI KESEHATAN MASYARAKAT';
+		case 'S1': return 'APOTEK';
+		case 'S2': return 'LAB';
+		case 'S3': return 'OPTIK';
+		case 'S4': return 'BIDAN/PERAWAT';
+		default: return 'FASKES PENUNJANG LAIN';
+		}
+	}
+	
 	// create map object using HTML5 location
 	// TODO add error handling: use a default location in Bandung
 	
@@ -14,6 +37,7 @@
 			zoom: 15
 		};
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+<<<<<<< HEAD:front/js/map.js
 		
 		
 		if (navigator.geolocation) {
@@ -33,6 +57,8 @@
 				}
 			});
 		}
+=======
+>>>>>>> 04489e18d5575a784b8ec5de61f22c5b8ea34972:js/info.js
 		
 		var directionsService = new google.maps.DirectionsService();
 		var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -58,12 +84,13 @@
 				google.maps.event.addListener(marker, 'click', function() {
 					$.get("http://localhost/ngidesehat/index.php/facility/get/" + this.id, function(data) {
 						$("#info_name").text(data.name);
-						$("#info_type").text(data.type);
+						$("#info_type").text(getType(data.type));
 						$("#info_address").text(data.address);
 						$("#info_tel").text(data.tel);
 						$("#info_class").text(data['class']);
 						$("#info_kec").text(data.kec);
 					});
+<<<<<<< HEAD:front/js/map.js
 
 					var request = {
 						origin: map.getCenter(),
@@ -75,6 +102,8 @@
 							directionsDisplay.setDirections(response);
 						}
 					});
+=======
+>>>>>>> 04489e18d5575a784b8ec5de61f22c5b8ea34972:js/info.js
 				});
 			}
 			

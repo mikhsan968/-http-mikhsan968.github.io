@@ -21,17 +21,19 @@
 				<div id="map-canvas" class="col-xs-8">
 				</div>
 				<div class="col-xs-4">
-				
-					<h1><span id="info_name"></span><br><small><span id="info_type"></span></small></h1>
+					
+					<h1>Rekomendasi Fasilitas Kesehatan</h1>
+					
+					<h2><span id="info_name"></span><br><small><span id="info_type"></span></small></h2>
 					<hr>
 					<p><strong>Alamat:</strong><br><span id="info_address"></span></p>
 					<p><strong>No. Telepon:</strong><br><span id="info_tel"></span></p>
 					<p><strong>Kelas:</strong><br><span id="info_class"></span></p>
 					<p><strong>Kecamatan:</strong><br><span id="info_kec"></span></p>
-					<h2>Metode Tempuh</h2>
-					<div id="directions-panel" class="col-xs-8">
-					<p>{ dari google maps api }</p>
-				
+					
+					<h2>Lokasi dengan jarak terdekat</h2>
+					<p><span id="closest_name"></span> (<span id="closest_time"></span>, <span id="closest_distance"></span>)</p>
+					
 				</div>
 			</div>
 		</div>
@@ -40,6 +42,6 @@
 		<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
 		
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKKdHe2kfdhW4NXkLoIwFkLw0HOvKibc0"></script>
-		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="js/rekomendasi.js"></script>
 	</body>
 </html>
