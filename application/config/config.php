@@ -26,7 +26,7 @@ $config['base_url']	= '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'front/info.html';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
