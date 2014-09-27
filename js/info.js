@@ -3,16 +3,6 @@
 
 	'use strict';
 	
-	function initialize() {
-	
-		var map;
-		$.get("http://localhost/ngidesehat/index.php/facility/get/" + main_id, function(loc) {
-			map = new google.maps.Map(document.getElementById('map-canvas'), {
-				center: new google.maps.LatLng(loc.lat, loc.lng),
-				zoom: 17
-			});
-		});
-		
 	function getType(code) {
 		switch (code) {
 		case 'P1': return 'Puskesmas';
@@ -38,8 +28,6 @@
 	
 	// create map object using HTML5 location
 	// TODO add error handling: use a default location in Bandung
-	
-	
 	function initialize() {
 	
 		var mapOptions = {
@@ -66,11 +54,6 @@
 				}
 			});
 		}
-		
-		var directionsService = new google.maps.DirectionsService();
-		var directionsDisplay = new google.maps.DirectionsRenderer();
-		directionsDisplay.setMap(map);
-		directionsDisplay.setPanel(document.getElementById('directions-panel'));
 		
 		$.get("http://localhost/ngidesehat/index.php/facility/locations", function(loc) {
 			
@@ -103,19 +86,12 @@
 						destination: marker.position,
 						travelMode: google.maps.TravelMode.DRIVING
 					};
-					directionsService.route(request, function(response, status) {
-						if (status == google.maps.DirectionsStatus.OK) {
-							directionsDisplay.setDirections(response);
-						}
-					});
 				});
 			}
 			
 		});
 		
 	}
-	
-	
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
 
