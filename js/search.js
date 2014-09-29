@@ -78,9 +78,9 @@
 				});
 			}
 			
-			$("#most_empty").text(maxRatio.name);
+			$("#most_empty").text(maxRatio.name + " (" + maxRatio.address + ")");
 			$("#empty_ratio").text(maxRatio.ratio);
-			$("#most_rated").text(maxRating.name);
+			$("#most_rated").text(maxRating.name + " (" + maxRating.address + ")");
 			$("#rating").text(maxRating.rating);
 			
 			navigator.geolocation.getCurrentPosition(function(pos) {

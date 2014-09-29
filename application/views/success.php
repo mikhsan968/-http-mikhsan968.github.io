@@ -42,6 +42,7 @@
 					<li><a href="<?= base_url('books/Buku_Pegangan_Sosialisasi_BPJS.pdf') ?>">Buku Pegangan Sosialisasi BPJS</a></li>
 					<li><a href="<?= base_url('books/Buku-Panduan-Layanan-bagi-Peserta-BPJS-Kesehatan.pdf') ?>">Buku Panduan Layanan bagi Peserta BPJS Kesehatan</a></li>
 					<li><a href="<?= base_url('books/SE_31_ttg_Pelaksanaan_Standar_Tarif_Pelayanan_Kesehatan.pdf') ?>">Standar Tarif Pelayanan Kesehatan</a></li>
+					<li><a href="<?= base_url('books/pmk-no-69-ttg-tarif-pelayanan-kesehatan-program-jkn.pdf') ?>">Tarif Pelayanan Kesehatan Program JKN</a></li>
 				</ul>
 			</li>
 			<li><a href="<?= site_url('home') ?>"><?= $mail ?></a></li>

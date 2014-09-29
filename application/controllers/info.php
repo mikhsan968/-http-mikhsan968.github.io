@@ -16,7 +16,18 @@ class Info extends CI_Controller
 	
 	public function index()
 	{
-		$this->faskes(rand() % 256);
+		//$this->faskes(rand() % 256);
+		$faskes = $this->db->query('SELECT * FROM faskes')->result();
+		$this->load->view('infolist', array(
+			'mail' => $this->session->userdata('mail'),
+			'faskes' => $faskes
+		));
+	}
+	
+	public function get()
+	{
+		$id = $this->input->get('pilihan');
+		$this->faskes($id + 1);
 	}
 	
 	public function faskes($id)

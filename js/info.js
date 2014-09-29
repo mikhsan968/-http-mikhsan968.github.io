@@ -36,25 +36,6 @@
 		};
 		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 		
-		
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position) {
-				var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-				var infowindow = new google.maps.InfoWindow({
-					map: map,
-					position: pos,
-					content: 'Anda berada di sini.'
-				});
-				map.setCenter(pos);
-			}, function() {
-				if (errorFlag) {
-					alert('Error: The Geolocation service failed.');
-				} else {
-					alert('Error: Your browser doesn\'t support geolocation.');
-				}
-			});
-		}
-		
 		$.get("http://localhost/ngidesehat/index.php/facility/locations", function(loc) {
 			
 			// generate map markers from facilities
